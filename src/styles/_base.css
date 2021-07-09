@@ -8,3 +8,53 @@ html {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
+/* fixiating header, main and footer  */
+
+body {
+  margin: 0;
+}
+
+#rick-morty__app {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+#rick-morty__app > header {
+  grid-area: "header";
+}
+
+#rick-morty__app > main {
+  grid-area: "main";
+  padding: 15px 5px 10px 5px;
+  overflow: auto;
+}
+
+#rick-morty__app > footer {
+  grid-template-rows: auto 1fr auto;
+}
+
+/*Styling haeder and footer*/
+
+header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #b7d2ef;
+
+  text-align: center;
+  padding: 15px 0 15px 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #b7d2ef;
+
+  text-align: center;
+  padding: 15px 0 15px 0;
+}
+
+img.applogo {
+  border-radius: 100px;
+}

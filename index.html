@@ -15,7 +15,15 @@
         height="40px"
         width="50px"
       />
-      <input type="text" class="filter-input" placeholder="Filters" />
+      <section class="section-filter">
+        <select name="filter" id="filter" class="filter">
+          <option class="option" value="">Show me</option>
+          <option class="option" value="alive">alive</option>
+          <option class="option" value="dead">dead</option>
+          <option class="option" value="unknown">unknown</option>
+        </select>
+      </section>
+      <!-- <input type="text" class="filter-input" placeholder="Filters" /> -->
       <button class="load-data">Load Data</button>
     </header>
     <main>

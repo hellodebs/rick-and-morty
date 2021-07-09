@@ -1,5 +1,6 @@
 const url = "https://rickandmortyapi.com/api/character";
 const buttonElement = document.querySelector(".load-data");
+const selectElement = document.querySelector(".section-filter");
 
 buttonElement.addEventListener("click", (e) => {
   e.preventDefault();
@@ -31,3 +32,7 @@ function characterelement(characters) {
   const mainElement = document.querySelector("main");
   mainElement.append(sectionElement);
 }
+
+//Add select element for filter
+
+selectElement.addEventListener("change", () => {});

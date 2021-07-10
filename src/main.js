@@ -1,33 +1,34 @@
+import { createCharacterElement } from "./character.js";
+
 const url = "https://rickandmortyapi.com/api/character";
 const buttonElement = document.querySelector(".load-data");
+const selectElement = document.querySelector("#filter");
+const mainElement = document.querySelector("main");
 
 buttonElement.addEventListener("click", (e) => {
   e.preventDefault();
+  const currentStatus = selectElement.value;
+
+  console.log(currentStatus);
+
+  resetCharacters();
   fetch(url)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
+      if (currentStatus !== "") {
+        data.results = data.results.filter(
+          (characterData) => characterData.status === currentStatus
+        );
+      }
       data.results.forEach((characterData) => {
-        characterelement(characterData);
+        const characterElement = createCharacterElement(characterData);
+        mainElement.append(characterElement);
       });
-      console.log(data);
     });
 });
 
-function characterelement(characters) {
-  const sectionElement = document.createElement("section");
-  sectionElement.classList.add("character");
-
-  const imgElement = document.createElement("img");
-  imgElement.src = characters.image;
-
-  const h2Element = document.createElement("h2");
-  h2Element.textContent = characters.name;
-
-  sectionElement.append(imgElement);
-  sectionElement.append(h2Element);
-
-  const mainElement = document.querySelector("main");
-  mainElement.append(sectionElement);
+function resetCharacters() {
+  document.querySelector("main").innerHTML = "";
 }

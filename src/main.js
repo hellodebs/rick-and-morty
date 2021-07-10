@@ -1,6 +1,6 @@
 const url = "https://rickandmortyapi.com/api/character";
 const buttonElement = document.querySelector(".load-data");
-const selectElement = document.querySelector(".section-filter");
+const selectElement = document.querySelector("#filter");
 
 buttonElement.addEventListener("click", (e) => {
   e.preventDefault();
@@ -10,21 +10,21 @@ buttonElement.addEventListener("click", (e) => {
     })
     .then((data) => {
       data.results.forEach((characterData) => {
-        characterelement(characterData);
+        characterElement(characterData);
       });
       console.log(data);
     });
 });
 
-function characterelement(characters) {
+function characterElement(character) {
   const sectionElement = document.createElement("section");
   sectionElement.classList.add("character");
 
   const imgElement = document.createElement("img");
-  imgElement.src = characters.image;
+  imgElement.src = character.image;
 
   const h2Element = document.createElement("h2");
-  h2Element.textContent = characters.name;
+  h2Element.textContent = character.name;
 
   sectionElement.append(imgElement);
   sectionElement.append(h2Element);
@@ -33,6 +33,24 @@ function characterelement(characters) {
   mainElement.append(sectionElement);
 }
 
-//Add select element for filter
+//Add addEventListener in select element for filtering status
 
-selectElement.addEventListener("change", () => {});
+selectElement.addEventListener("change", (event) => {
+  const currentStatus = event.target.value;
+  resetCharacters();
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      data.results.forEach((characterData) => {
+        if (characterData.status === currentStatus) {
+          characterElement(characterData);
+        }
+      });
+    });
+});
+
+function resetCharacters() {
+  document.querySelector("main").innerHTML = "";
+}

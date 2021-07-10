@@ -5,12 +5,10 @@ const buttonElement = document.querySelector(".load-data");
 const selectElement = document.querySelector("#filter");
 const mainElement = document.querySelector("main");
 
-buttonElement.addEventListener("click", (e) => {
-  e.preventDefault();
+//add addEventListener to receive filtered content after clicking the button
+buttonElement.addEventListener("click", () => {
   const currentStatus = selectElement.value;
-
-  console.log(currentStatus);
-
+  //--console.log(currentStatus);
   resetCharacters();
   fetch(url)
     .then((response) => {
@@ -28,7 +26,7 @@ buttonElement.addEventListener("click", (e) => {
       });
     });
 });
-
+//reset content
 function resetCharacters() {
   document.querySelector("main").innerHTML = "";
 }

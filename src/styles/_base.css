@@ -6,7 +6,7 @@
 
 html {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
 }
 /* fixiating header, main and footer  */
 
@@ -42,7 +42,7 @@ header {
   justify-content: space-around;
   background-color: #b7d2ef;
   text-align: center;
-  padding: 15px 0 15px 0;
+  padding: 15px 15px 15px 15px;
 }
 
 footer {
@@ -56,9 +56,4 @@ footer {
 
 img.applogo {
   border-radius: 100px;
-}
-
-section.character {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }

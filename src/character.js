@@ -1,6 +1,6 @@
 export function createCharacterElement(character) {
   const sectionElement = document.createElement("section");
-  sectionElement.classList.add("character");
+  sectionElement.classList.add("character", character.status);
 
   const imgElement = document.createElement("img");
   imgElement.src = character.image;

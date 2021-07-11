@@ -30,6 +30,7 @@ section.character {
   margin: 15px 0 15px 0;
   text-align: center;
   color: var(--text-color);
+  max-width: 500px;
 }
 
 section > img {
